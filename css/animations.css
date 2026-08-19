@@ -1,0 +1,54 @@
+/* =========================================================================
+   PATCHES ZONE — Animation Layer
+   Fade / Slide / Zoom entrance animations, parallax, hover micro-interactions
+   ========================================================================= */
+
+[data-anim]{opacity:0;will-change:transform,opacity;transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);}
+[data-anim].in{opacity:1;transform:none !important;}
+
+[data-anim="fade-up"]{transform:translateY(40px);}
+[data-anim="fade-down"]{transform:translateY(-40px);}
+[data-anim="slide-left"]{transform:translateX(60px);}
+[data-anim="slide-right"]{transform:translateX(-60px);}
+[data-anim="zoom-in"]{transform:scale(.85);}
+[data-anim="flip"]{transform:rotateX(20deg) translateY(30px);}
+
+/* Stagger helper via inline --delay */
+[data-anim]{transition-delay:calc(var(--delay, 0) * 1ms);}
+
+/* Hover micro interactions */
+.hover-pop{transition:transform .3s cubic-bezier(.2,.9,.3,1.3);}
+.hover-pop:hover{transform:translateY(-6px) scale(1.02);}
+.hover-tilt{transition:transform .4s ease;}
+.hover-tilt:hover{transform:perspective(600px) rotateX(4deg) rotateY(-4deg);}
+
+/* Spin / pulse decorative elements */
+.spin-slow{animation:spin 18s linear infinite;}
+@keyframes spin{from{transform:rotate(0);}to{transform:rotate(360deg);}}
+.pulse-soft{animation:pulseSoft 2.4s ease-in-out infinite;}
+@keyframes pulseSoft{0%,100%{opacity:1;}50%{opacity:.6;}}
+
+/* Parallax layers (JS sets transform via animation.js) */
+.parallax{will-change:transform;}
+
+/* Page transition fade-in */
+.page-fade{animation:pageFade .6s ease both;}
+@keyframes pageFade{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+/* Button ripple */
+.btn{position:relative;overflow:hidden;}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,0.45);transform:scale(0);animation:rippleAnim .6s ease-out;pointer-events:none;}
+@keyframes rippleAnim{to{transform:scale(3);opacity:0;}}
+
+/* Skeleton loading (lazy images) */
+img[loading="lazy"]{background:linear-gradient(90deg, var(--bg-soft) 25%, var(--line-soft) 37%, var(--bg-soft) 63%);background-size:400% 100%;animation:shimmer 1.4s ease infinite;}
+img[loading="lazy"].loaded{animation:none;background:none;}
+@keyframes shimmer{0%{background-position:100% 50%;}100%{background-position:0 50%;}}
+
+/* Type-card / icon float accents reused across site */
+@keyframes gentleBob{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+.bob{animation:gentleBob 3.4s ease-in-out infinite;}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+}

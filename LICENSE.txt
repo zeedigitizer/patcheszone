@@ -1,0 +1,30 @@
+Patches Zone Website — Custom License
+
+Copyright (c) 2026 Patches Zone. All rights reserved.
+
+This website source code (HTML, CSS and JavaScript files in this project)
+was custom-built for Patches Zone. Patches Zone is granted a perpetual,
+non-exclusive license to use, host, modify, and distribute this code for
+its own business website and related marketing purposes.
+
+This code may not be resold, redistributed, or repurposed as a template
+or theme for third parties without written permission from the original
+developer.
+
+THIRD-PARTY ASSETS
+--------------------
+This project loads the following third-party libraries via public CDNs,
+each governed by its own license (all are free/open-source):
+  - Font Awesome 6 Free   — https://fontawesome.com/license/free
+  - AOS (Animate On Scroll) — MIT License — https://github.com/michalsnik/aos
+  - Google Fonts (Poppins, Manrope) — SIL Open Font License
+
+No other third-party templates, themes, or copyrighted design assets were
+used in the creation of this website. The visual design, layout and code
+structure are original work.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING
+FROM THE USE OF THIS SOFTWARE.

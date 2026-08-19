@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Patch Price Calculator | Patches Zone</title>
+<meta name="description" content="Get an instant price for custom embroidered, PVC, chenille, leather and woven patches. Set your patch type, size, quantity and backing to see live pricing.">
+<meta name="keywords" content="custom patches, embroidered patches, PVC patches, chenille patches, leather patches, woven patches, custom name patches, custom logo patches, uniform patches, hat patches, velcro patches, patch price calculator">
+<meta name="author" content="Patches Zone">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.patcheszone.com/calculator.html">
+
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Patches Zone">
+<meta property="og:title" content="Custom Patch Price Calculator | Patches Zone">
+<meta property="og:description" content="Get an instant price for custom embroidered, PVC, chenille, leather and woven patches. Set your patch type, size, quantity and backing to see live pricing.">
+<meta property="og:url" content="https://www.patcheszone.com/calculator.html">
+<meta property="og:image" content="https://www.patcheszone.com/images/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Custom Patch Price Calculator | Patches Zone">
+<meta name="twitter:description" content="Get an instant price for custom embroidered, PVC, chenille, leather and woven patches. Set your patch type, size, quantity and backing to see live pricing.">
+<meta name="twitter:image" content="https://www.patcheszone.com/images/og-cover.png">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" integrity="sha512-A0/nlyO+jjtwyGKF71tw01M7egnkfjM+cSjrRnzy5mSuS+Y1kISNVwOvV70I3PfL/vFbC8OSNQlbUJ+eYQ+qKw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Patches Zone",
+  "url": "https://www.patcheszone.com",
+  "logo": "https://www.patcheszone.com/images/logo.svg",
+  "image": "https://www.patcheszone.com/images/og-cover.png",
+  "description": "Get an instant price for custom embroidered, PVC, chenille, leather and woven patches. Set your patch type, size, quantity and backing to see live pricing.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "228 Garment District Ave, Suite 410",
+    "addressLocality": "Chicago",
+    "addressRegion": "IL",
+    "postalCode": "60607",
+    "addressCountry": "US"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1 (312) 555-0187",
+    "contactType": "customer service",
+    "email": "orders@patcheszone.com"
+  },
+  "sameAs": [
+    "https://www.facebook.com/patcheszone",
+    "https://www.instagram.com/patcheszone",
+    "https://www.pinterest.com/patcheszone",
+    "https://www.linkedin.com/company/patcheszone"
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="css/calculator.css">
+</head>
+<body>
+<div id="loader"><div class="loader-mark">PZ</div><div class="loader-text">Patches Zone</div></div>
+<div class="cursor-dot"></div><div class="cursor-ring"></div>
+
+<header>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="topbar-links">
+        <a href="tel:+13125550187"><i class="fa-solid fa-phone"></i> +1 (312) 555-0187</a>
+        <a href="mailto:orders@patcheszone.com"><i class="fa-solid fa-envelope"></i> orders@patcheszone.com</a>
+        <span><i class="fa-solid fa-truck"></i> Free worldwide shipping on 200+ pcs</span>
+      </div>
+      <div class="topbar-social">
+        <a href="https://www.facebook.com/patcheszone" aria-label="Facebook" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/patcheszone" aria-label="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.pinterest.com/patcheszone" aria-label="Pinterest" target="_blank" rel="noopener"><i class="fa-brands fa-pinterest-p"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <nav class="navmain">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="Patches Zone logo" width="48" height="48">
+        <span class="logo-text"><b>Patches Zone</b><span>CUSTOM PATCHES</span></span>
+      </a>
+      <ul class="navlinks">
+        <li><a href="index.html">Home</a></li>
+        <li class="active"><a href="calculator.html">Price Calculator</a></li>
+        <li><a href="products.html">Products <i class="fa-solid fa-chevron-down caret"></i></a><div class="mega">
+        <div class="mega-grid"><a href="embroidery-patches.html"><i class="fa-solid fa-thread"></i> Embroidered Patches</a><a href="pvc-patches.html"><i class="fa-solid fa-shapes"></i> PVC Patches</a><a href="chenille-patches.html"><i class="fa-solid fa-layer-group"></i> Chenille Patches</a><a href="leather-patches.html"><i class="fa-solid fa-shoe-prints"></i> Leather Patches</a><a href="woven-patches.html"><i class="fa-solid fa-grip-lines"></i> Woven Patches</a><a href="products.html"><i class="fa-solid fa-grip"></i> All Products</a><a href="calculator.html"><i class="fa-solid fa-calculator"></i> Get a Price</a></div>
+        <div class="mega-promo">
+          <div>
+            <h4>Free Digitizing &amp; Sample Proof</h4>
+            <p>Upload your logo and our art team preps a print-ready proof at no charge — every order, every time.</p>
+          </div>
+          <a href="calculator.html" class="btn btn-primary btn-sm">Start My Quote</a>
+        </div>
+      </div></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="icon-btn dark-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+        <a href="calculator.html" class="btn btn-primary btn-sm">Get Instant Quote</a>
+        <div class="burger" aria-label="Open menu"><span></span><span></span><span></span></div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="drawer-overlay"></div>
+<div class="drawer">
+  <div class="drawer-close"><i class="fa-solid fa-xmark"></i></div>
+  <a href="index.html">Home</a>
+      <a href="calculator.html">Price Calculator</a>
+      <a href="products.html">Products</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About Us</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQs</a>
+      <a href="contact.html">Contact</a>
+  <a href="calculator.html" class="btn btn-primary btn-block" style="margin-top:20px;">Get Instant Quote</a>
+</div>
+<div class="breadcrumb-bar"><div class="wrap"><div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span class="current">Price Calculator</span></div></div></div>
+<main class="page-fade">
+
+<section class="section" style="padding-top:56px;">
+  <div class="wrap">
+    <div class="sec-head left" data-anim="fade-up">
+      <div class="eyebrow">Instant Online Pricing</div>
+      <h2>Build Your Patch &amp; See The Price Instantly</h2>
+      <p>Pick a patch type, dial in your size and quantity, and the total updates live. No sign-up, no waiting on an email — see your number right now.</p>
+    </div>
+
+    <div class="calc-shell">
+      <div>
+        <div class="calc-panel" data-anim="fade-up">
+          <div class="calc-step-label"><span class="n">1</span><h3>Choose Your Patch Type</h3></div>
+          <div class="type-bento">
+          <div class="type-card active" data-type="embroidered" data-price="1.05" style="--d:0"><i class="fa-solid fa-thread"></i><h5>Embroidered</h5><span>from $1.05</span></div>
+          <div class="type-card" data-type="pvc" data-price="1.35" style="--d:1"><i class="fa-solid fa-shapes"></i><h5>PVC Rubber</h5><span>from $1.35</span></div>
+          <div class="type-card" data-type="woven" data-price="1.20" style="--d:2"><i class="fa-solid fa-grip-lines"></i><h5>Woven</h5><span>from $1.20</span></div>
+          <div class="type-card" data-type="printed" data-price="1.00" style="--d:3"><i class="fa-solid fa-print"></i><h5>Printed</h5><span>from $1.00</span></div>
+          <div class="type-card" data-type="chenille" data-price="1.85" style="--d:4"><i class="fa-solid fa-layer-group"></i><h5>Chenille</h5><span>from $1.85</span></div>
+          <div class="type-card" data-type="leather" data-price="1.60" style="--d:5"><i class="fa-solid fa-shoe-prints"></i><h5>Leather</h5><span>from $1.60</span></div>
+          <div class="type-card" data-type="denim" data-price="1.30" style="--d:6"><i class="fa-solid fa-vest"></i><h5>Denim</h5><span>from $1.30</span></div>
+          <div class="type-card" data-type="sequin" data-price="2.20" style="--d:7"><i class="fa-solid fa-star"></i><h5>Sequin</h5><span>from $2.20</span></div>
+          <div class="type-card" data-type="metal" data-price="2.50" style="--d:8"><i class="fa-solid fa-medal"></i><h5>Metal</h5><span>from $2.50</span></div>
+          <div class="type-card" data-type="flex" data-price="1.15" style="--d:9"><i class="fa-solid fa-water"></i><h5>Flex TPU</h5><span>from $1.15</span></div>
+          <div class="type-card" data-type="tatami" data-price="2.90" style="--d:10"><i class="fa-solid fa-circle-dot"></i><h5>Tatami Silicone</h5><span>from $2.90</span></div>
+          <div class="type-card" data-type="embprint" data-price="1.65" style="--d:11"><i class="fa-solid fa-object-group"></i><h5>Embroidered + Printed</h5><span>from $1.65</span></div>
+          </div>
+          <div class="field" style="margin-top:18px;">
+            <label for="selType">Or select from the list <span id="lblType">Embroidered</span></label>
+            <select class="calc-select" id="selType">
+            <option value="embroidered" data-price="1.05">Embroidered</option>
+            <option value="pvc" data-price="1.35">PVC Rubber</option>
+            <option value="woven" data-price="1.20">Woven</option>
+            <option value="printed" data-price="1.00">Printed</option>
+            <option value="chenille" data-price="1.85">Chenille</option>
+            <option value="leather" data-price="1.60">Leather</option>
+            <option value="denim" data-price="1.30">Denim</option>
+            <option value="sequin" data-price="2.20">Sequin</option>
+            <option value="metal" data-price="2.50">Metal</option>
+            <option value="flex" data-price="1.15">Flex TPU</option>
+            <option value="tatami" data-price="2.90">Tatami Silicone</option>
+            <option value="embprint" data-price="1.65">Embroidered + Printed</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="calc-panel" data-anim="fade-up">
+          <div class="calc-step-label"><span class="n">2</span><h3>Size &amp; Quantity</h3></div>
+          <div class="range-row">
+            <div class="range-head"><label for="rngSize">Patch Width</label><span class="val"><span id="lblSize">3.0</span>&quot;</span></div>
+            <input type="range" id="rngSize" min="1" max="8" step="0.5" value="3">
+            <div class="range-scale"><span>1&quot;</span><span>8&quot;</span></div>
+          </div>
+          <div class="range-row" style="margin-bottom:0;">
+            <div class="range-head"><label for="rngQty">Quantity</label><span class="val"><span id="lblQty">100 pcs</span></span></div>
+            <input type="range" id="rngQty" min="5" max="2000" step="5" value="100">
+            <div class="range-scale"><span>5 pcs</span><span>2000 pcs</span></div>
+          </div>
+        </div>
+
+        <div class="calc-panel" data-anim="fade-up">
+          <div class="calc-step-label"><span class="n">3</span><h3>Backing / Attachment Type</h3></div>
+          <div class="backing-pills" id="backingPills">
+            <div class="pill active" data-mult="1">Iron-on</div>
+            <div class="pill" data-mult="1.08">Velcro</div>
+            <div class="pill" data-mult="1.05">Sew-on</div>
+            <div class="pill" data-mult="1.12">Safety Pin</div>
+            <div class="pill" data-mult="1.03">Self-Adhesive</div>
+          </div>
+        </div>
+
+        <div class="calc-panel" data-anim="fade-up">
+          <div class="calc-step-label"><span class="n">4</span><h3>Border / Edge Style</h3></div>
+          <div class="pill-group" id="borderPills">
+            <div class="pill active">Merrow Border</div>
+            <div class="pill">Laser Cut Edge</div>
+            <div class="pill">Heat-Cut (Plastic) Edge</div>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted);margin-top:14px;">This is the outer edge finish only — attachment/backing is set in Step 3 above and is what affects price.</p>
+        </div>
+
+        <div class="calc-panel" data-anim="fade-up">
+          <div class="calc-step-label"><span class="n">5</span><h3>Thread / Patch Colors <span style="color:var(--muted);font-weight:600;font-size:12.5px;">(optional)</span></h3></div>
+          <div class="swatch-row">
+          <div class="swatch" data-color="Royal Blue" title="Royal Blue" style="background:#1E3A8A;"></div>
+          <div class="swatch" data-color="Orange" title="Orange" style="background:#FF7A1A;"></div>
+          <div class="swatch" data-color="Sky Blue" title="Sky Blue" style="background:#33B4F0;"></div>
+          <div class="swatch" data-color="Midnight" title="Midnight" style="background:#1A2036;"></div>
+          <div class="swatch" data-color="Red" title="Red" style="background:#E14B4B;"></div>
+          <div class="swatch" data-color="Green" title="Green" style="background:#20B26C;"></div>
+          <div class="swatch" data-color="Gold" title="Gold" style="background:#F4C542;"></div>
+          <div class="swatch" data-color="White" title="White" style="background:#FFFFFF;"></div>
+          <div class="swatch" data-color="Purple" title="Purple" style="background:#7A4BE1;"></div>
+          <div class="swatch" data-color="Black" title="Black" style="background:#111111;"></div>
+          </div>
+        </div>
+
+        <div class="calc-panel" data-anim="fade-up">
+          <div class="calc-step-label"><span class="n">6</span><h3>Special Instructions</h3></div>
+          <div class="field" style="margin-bottom:0;">
+            <textarea id="specialInstructions" class="instr-textarea" placeholder="E.g. exact PMS thread colors, glow-in-the-dark thread, metallic thread, custom die-cut shape, rush turnaround..."></textarea>
+          </div>
+        </div>
+
+        <div class="calc-panel" data-anim="fade-up">
+          <div class="calc-step-label"><span class="n">7</span><h3>Upload Your Logo / Artwork</h3></div>
+          <div class="upload-box" id="uploadBox">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <p><strong>Click to upload</strong> or drag &amp; drop &mdash; PNG, JPG, PDF, AI, EPS (max 15MB)</p>
+            <div class="fname" id="calcFileName"></div>
+          </div>
+          <input type="file" id="calcFile" accept="image/*,.pdf,.ai,.eps">
+        </div>
+      </div>
+
+      <div>
+        <div class="summary-card" data-anim="fade-up">
+          <h3>Your Instant Estimate</h3>
+          <div class="rtotal" id="outTotal">$95.00</div>
+          <div class="runit" id="outUnit">&asymp; $0.95 / patch</div>
+          <div class="breakdown">
+            <div><span>Base rate</span><span id="bdBase">$0.95</span></div>
+            <div><span>Size factor</span><span id="bdSize">&times;1.00</span></div>
+            <div><span>Quantity discount</span><span id="bdQty">&times;1.00</span></div>
+            <div><span>Backing</span><span id="bdBacking">&times;1.00</span></div>
+            <div><span>Shipping</span><span id="bdShip">$50.00</span></div>
+            <div class="quote-extra-line"><span>Border style</span><span id="quoteBorder">Merrow Border</span></div>
+            <div class="quote-extra-line"><span>Colors</span><span id="quoteColors">Standard / as shown</span></div>
+            <div class="quote-extra-line"><span>Artwork file</span><span id="quoteFile">No file attached</span></div>
+          </div>
+          <div class="ship-hint" id="shipHint">Add <span id="shipGap">100</span> more pcs to unlock free worldwide shipping</div>
+          <button class="btn btn-primary" id="requestQuoteBtn"><i class="fa-solid fa-paper-plane"></i> Request This Quote</button>
+          <p class="summary-note">No payment required now &mdash; our team confirms final pricing after reviewing your artwork.</p>
+        </div>
+
+        <div class="card" style="margin-top:20px;padding:26px;" data-anim="fade-up">
+          <ul style="display:flex;flex-direction:column;gap:14px;">
+            <li style="display:flex;gap:12px;font-size:13.5px;"><i class="fa-solid fa-circle-check" style="color:#20B26C;margin-top:3px;"></i> No minimum order quantity</li>
+            <li style="display:flex;gap:12px;font-size:13.5px;"><i class="fa-solid fa-circle-check" style="color:#20B26C;margin-top:3px;"></i> Free digitizing &amp; proof on every order</li>
+            <li style="display:flex;gap:12px;font-size:13.5px;"><i class="fa-solid fa-circle-check" style="color:#20B26C;margin-top:3px;"></i> Free worldwide shipping on 200+ pcs</li>
+            <li style="display:flex;gap:12px;font-size:13.5px;"><i class="fa-solid fa-circle-check" style="color:#20B26C;margin-top:3px;"></i> 7&ndash;10 day production turnaround</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="quote-modal" id="quoteModal">
+  <div class="quote-modal-card">
+    <div class="quote-modal-close" id="quoteModalClose"><i class="fa-solid fa-xmark"></i></div>
+    <div class="eyebrow">Quote Summary</div>
+    <h2 style="font-size:24px;margin-bottom:6px;">Review &amp; Send Your Request</h2>
+    <p style="color:var(--muted);font-size:14px;">Confirm the details below, add your contact info, and our team will follow up with a final quote and production timeline.</p>
+    <div class="quote-recap">
+      <div><span>Patch type</span><span id="modalType">&mdash;</span></div>
+      <div><span>Size</span><span id="modalSize">&mdash;</span></div>
+      <div><span>Quantity</span><span id="modalQty">&mdash;</span></div>
+      <div><span>Backing</span><span id="modalBacking">&mdash;</span></div>
+      <div><span>Border style</span><span id="modalBorder">&mdash;</span></div>
+      <div><span>Colors</span><span id="modalColors">&mdash;</span></div>
+      <div><span>Special instructions</span><span id="modalInstructions">&mdash;</span></div>
+      <div><span>Artwork file</span><span id="modalFile">&mdash;</span></div>
+      <div class="grand"><span>Estimated total</span><span id="modalTotal">$0.00</span></div>
+    </div>
+    <form data-validate data-success="Thanks! Your quote request was received &mdash; we will email you a confirmed price within one business day.">
+      <div class="form-row">
+        <div class="field"><label>Full Name <span class="req">*</span></label><input type="text" required data-rule="min3" placeholder="Your name"><span class="field-error">Please enter your name.</span></div>
+        <div class="field"><label>Email Address <span class="req">*</span></label><input type="email" required data-rule="email" placeholder="you@example.com"><span class="field-error">Please enter a valid email.</span></div>
+      </div>
+      <div class="field"><label>Phone / WhatsApp</label><input type="tel" data-rule="phone" placeholder="+1 (312) 555-0187"><span class="field-error">Please enter a valid phone number.</span></div>
+      <button type="submit" class="btn btn-primary btn-block">Submit Quote Request</button>
+      <div class="form-msg"></div>
+    </form>
+    <div class="quote-alt-actions">
+      <a href="https://wa.me/13125550187" target="_blank" rel="noopener" class="btn btn-ghost btn-block btn-sm"><i class="fa-brands fa-whatsapp"></i> WhatsApp Instead</a>
+      <a href="mailto:orders@patcheszone.com" class="btn btn-ghost btn-block btn-sm"><i class="fa-solid fa-envelope"></i> Email Instead</a>
+    </div>
+  </div>
+</div>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo">
+          <img src="images/logo-white.svg" alt="Patches Zone">
+          <b>Patches Zone</b>
+        </a>
+        <p>Premium custom patch manufacturing — embroidered, PVC, chenille, leather and woven patches shipped worldwide. Free digitizing, no minimum order, and a live price calculator so you always know your cost upfront.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/patcheszone" aria-label="Facebook" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/patcheszone" aria-label="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.pinterest.com/patcheszone" aria-label="Pinterest" target="_blank" rel="noopener"><i class="fa-brands fa-pinterest-p"></i></a>
+          <a href="https://www.linkedin.com/company/patcheszone" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="calculator.html">Price Calculator</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Patch Types</h5>
+        <ul class="footer-links">
+          <li><a href="embroidery-patches.html">Embroidered Patches</a></li><li><a href="pvc-patches.html">PVC Patches</a></li><li><a href="chenille-patches.html">Chenille Patches</a></li><li><a href="leather-patches.html">Leather Patches</a></li><li><a href="woven-patches.html">Woven Patches</a></li>
+          <li><a href="products.html">All Products</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i> 228 Garment District Ave, Suite 410, Chicago, IL 60607, USA</li>
+          <li><i class="fa-solid fa-phone"></i> +1 (312) 555-0187</li>
+          <li><i class="fa-solid fa-envelope"></i> orders@patcheszone.com</li>
+          <li><i class="fa-brands fa-whatsapp"></i> WhatsApp: +1 (312) 555-0187</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span class="cur-year">2026</span> Patches Zone. All rights reserved.</span>
+      <div class="legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="sitemap.xml">Sitemap</a>
+      </div>
+      <div class="payment-icons">
+        <i class="fa-brands fa-cc-visa"></i><i class="fa-brands fa-cc-mastercard"></i><i class="fa-brands fa-cc-paypal"></i><i class="fa-brands fa-cc-amex"></i>
+      </div>
+    </div>
+  </div>
+</footer><div class="float-stack">
+  <a href="https://wa.me/13125550187" target="_blank" rel="noopener" class="float-btn float-whatsapp" aria-label="Chat on WhatsApp">
+    <span class="pulse-ring"></span><i class="fa-brands fa-whatsapp"></i>
+    <span class="float-tooltip">Chat on WhatsApp</span>
+  </a>
+  <a href="tel:+13125550187" class="float-btn float-call" aria-label="Call us">
+    <i class="fa-solid fa-phone"></i><span class="float-tooltip">Call +1 (312) 555-0187</span>
+  </a>
+  <a href="mailto:orders@patcheszone.com" class="float-btn float-email" aria-label="Email us">
+    <i class="fa-solid fa-envelope"></i><span class="float-tooltip">Email Us</span>
+  </a>
+  <button class="float-btn float-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+</div><script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVA8eatyOZZ8AsNVDdI3UQjB01ndyGSjrJgSJcHb0hJs8fGpsSSF0GTKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>if (window.AOS) { AOS.init({duration:700, once:true, offset:60}); }</script>
+<script src="js/app.js"></script>
+<script src="js/animation.js"></script>
+<script src="js/calculator.js"></script>
+<script src="js/validation.js"></script>
+</body>
+</html>
