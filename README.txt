@@ -57,10 +57,10 @@ BEFORE GOING LIVE — REPLACE PLACEHOLDER INFO
 Search every HTML file for these placeholder values and replace with your
 real details:
   - Phone:    +1 (312) 555-0187
-  - Email:    orders@patcheszone.com
+  - Email:    orders@patcheszones.com
   - Address:  228 Garment District Ave, Suite 410, Chicago, IL 60607, USA
   - WhatsApp: 13125550187 (used in wa.me links)
-  - Domain:   https://www.patcheszone.com (used in canonical/OG tags,
+  - Domain:   https://patcheszones.com (used in canonical/OG tags,
               schema.org JSON-LD, robots.txt and sitemap.xml)
   - Google Map embed URL in index.html and contact.html
   - Social links (Facebook/Instagram/Pinterest/LinkedIn)
