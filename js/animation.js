@@ -64,4 +64,19 @@
     }, {passive:true});
   }
 
+  /* ---------- Mouse-tilt interaction on hero visual (premium 3D feel) ---------- */
+  var heroSection = document.querySelector('.hero');
+  var heroVisual = document.querySelector('.hero-visual');
+  if(heroSection && heroVisual && window.matchMedia('(hover: hover)').matches){
+    heroSection.addEventListener('mousemove', function(e){
+      var rect = heroSection.getBoundingClientRect();
+      var px = (e.clientX - rect.left) / rect.width - 0.5;
+      var py = (e.clientY - rect.top) / rect.height - 0.5;
+      heroVisual.style.transform = 'perspective(900px) rotateY(' + (px * 10) + 'deg) rotateX(' + (py * -10) + 'deg)';
+    });
+    heroSection.addEventListener('mouseleave', function(){
+      heroVisual.style.transform = 'perspective(900px) rotateY(0) rotateX(0)';
+    });
+  }
+
 })();

@@ -7,6 +7,10 @@
 (function(){
   "use strict";
 
+  // Declared early (before the first calculate() call below) so that
+  // updateSummaryPanel() never reads this before it's initialized.
+  var selectedColors = [];
+
   var typeCards = document.querySelectorAll('.type-card');
   var selType = document.getElementById('selType');
   var lblType = document.getElementById('lblType');
@@ -115,7 +119,6 @@
     window._pzQuote.total = total.toFixed(2);
     updateSummaryPanel();
   }
-  calculate();
 
   /* =========================================================================
      Additional quote-request fields (Border Type, Colors, Special Instructions,
@@ -132,7 +135,6 @@
   });
 
   var swatches = document.querySelectorAll('.swatch');
-  var selectedColors = [];
   swatches.forEach(function(s){
     s.addEventListener('click', function(){
       s.classList.toggle('active');
@@ -206,5 +208,12 @@
     if(modalClose){ modalClose.addEventListener('click', function(){ modal.classList.remove('open'); }); }
     modal.addEventListener('click', function(e){ if(e.target === modal){ modal.classList.remove('open'); } });
   }
+
+  // Run the initial calculation last, once every control on the page
+  // (backing pills, border pills, swatches, file upload, request-quote
+  // button) has already been wired up above. This guarantees a problem
+  // inside calculate()/updateSummaryPanel() can never prevent the rest
+  // of the page's buttons from being set up.
+  calculate();
 
 })();

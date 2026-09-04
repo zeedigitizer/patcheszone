@@ -111,6 +111,112 @@
   /* ---------- Current year in footer ---------- */
   document.querySelectorAll('.cur-year').forEach(function(el){ el.textContent = new Date().getFullYear(); });
 
+  /* ---------- Live chat widget (bottom-left) ---------- */
+  var chatWidget = document.getElementById('chatWidget');
+  if(chatWidget){
+    var waNumber = chatWidget.dataset.whatsapp;
+    var PHONE_DISPLAY = chatWidget.dataset.phone || '';
+    var EMAIL_DISPLAY = chatWidget.dataset.email || '';
+    var chatGreet = document.getElementById('chatGreet');
+    var chatGreetClose = document.getElementById('chatGreetClose');
+    var chatFab = document.getElementById('chatFab');
+    var chatPanel = document.getElementById('chatPanel');
+    var chatPanelClose = document.getElementById('chatPanelClose');
+    var chatPanelBody = document.getElementById('chatPanelBody');
+    var chatForm = document.getElementById('chatPanelForm');
+    var chatInput = document.getElementById('chatMsgInput');
+
+    function showGreet(){
+      if(chatPanel.classList.contains('open')) return;
+      if(sessionStorage.getItem('pz-chat-dismissed') === '1') return;
+      chatGreet.classList.add('show');
+    }
+    function hideGreet(){ chatGreet.classList.remove('show'); }
+
+    setTimeout(showGreet, 2600);
+
+    if(chatGreetClose){
+      chatGreetClose.addEventListener('click', function(e){
+        e.stopPropagation();
+        hideGreet();
+        sessionStorage.setItem('pz-chat-dismissed', '1');
+      });
+    }
+    /* clicking the greet bubble itself opens the chat */
+    chatGreet.addEventListener('click', function(){ openPanel(); });
+
+    function openPanel(){
+      hideGreet();
+      chatPanel.classList.add('open');
+      chatInput && chatInput.focus();
+    }
+    function closePanel(){ chatPanel.classList.remove('open'); }
+
+    chatFab.addEventListener('click', function(){
+      if(chatPanel.classList.contains('open')){ closePanel(); } else { openPanel(); }
+    });
+    if(chatPanelClose){ chatPanelClose.addEventListener('click', closePanel); }
+
+    /* Simple keyword-matched auto-responses using our real FAQ facts.
+       Nothing here auto-opens WhatsApp -- a wa.me link is only offered
+       as a clickable suggestion when the bot can't fully answer, or
+       when the visitor explicitly asks to talk to a person. */
+    var waLink = waNumber ? ('https://wa.me/' + waNumber) : '#';
+    var RULES = [
+      { test: /\b(hi|hello|hey|salam|assalam|asalam)\b/i,
+        reply: "Hi! 👋 I can help with pricing, patch types, turnaround time, backing options or shipping. What would you like to know?" },
+      { test: /\b(price|prices|pricing|cost|rate|quote|quotation)\b/i,
+        reply: "Pricing depends on patch type, size, quantity and backing. Get an exact, instant number from our <a href=\"calculator.html\" target=\"_blank\" rel=\"noopener\">Price Calculator</a> &mdash; as a starting point, embroidered patches begin around $1.05/patch and the per-patch cost drops a lot at higher quantities." },
+      { test: /\b(minimum|moq|min order|smallest order)\b/i,
+        reply: "There's no minimum order &mdash; you can order as few as a single patch. The price per patch just gets better as quantity goes up." },
+      { test: /\b(time|turnaround|production|how long|fast|ready|delivery time)\b/i,
+        reply: "Standard production is 7&ndash;10 business days after you approve the artwork proof, plus shipping time to your country." },
+      { test: /\b(ship|shipping|deliver|delivery|international|country|worldwide)\b/i,
+        reply: "We ship tracked parcels to 80+ countries. Orders of 200+ pcs get free worldwide shipping automatically." },
+      { test: /\b(digitiz|artwork|logo|design file|file|proof)\b/i,
+        reply: "Every order includes free digitizing &mdash; send us your logo or design and we'll prepare a proof for your approval before production starts." },
+      { test: /\b(backing|velcro|iron.?on|sew.?on|pin|adhesive)\b/i,
+        reply: "We offer iron-on, sew-on, velcro (hook &amp; loop), safety pin and self-adhesive backing &mdash; pick any of these live in the price calculator." },
+      { test: /\b(type|types|embroidered|pvc|chenille|leather|woven|sublimat|hat patch|material)\b/i,
+        reply: "We manufacture Embroidered, PVC, Chenille, Leather, Woven, Sublimated, Velcro-backed and Hat patches. See real examples of each in our <a href=\"gallery.html\" target=\"_blank\" rel=\"noopener\">Gallery</a>." },
+      { test: /\b(human|agent|person|talk to|representative|call|phone|whatsapp|email)\b/i,
+        reply: "Of course &mdash; you can reach our team directly on <a href=\"" + waLink + "\" target=\"_blank\" rel=\"noopener\">WhatsApp</a>, by phone at " + PHONE_DISPLAY + ", or email " + EMAIL_DISPLAY + ". We reply fastest on WhatsApp." },
+      { test: /\b(thanks|thank you|ok|okay|great|good|cool|nice)\b/i,
+        reply: "You're welcome! Let me know if there's anything else I can help with. 😊" }
+    ];
+    var FALLBACK = "Thanks for your message! I can answer questions here about pricing, patch types, turnaround, backing or shipping. For anything specific to your own design or order, our team replies fastest on <a href=\"" + waLink + "\" target=\"_blank\" rel=\"noopener\">WhatsApp</a>.";
+
+    function botReply(msg){
+      for(var i = 0; i < RULES.length; i++){
+        if(RULES[i].test.test(msg)) return RULES[i].reply;
+      }
+      return FALLBACK;
+    }
+
+    if(chatForm){
+      chatForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        var msg = (chatInput.value || '').trim();
+        if(!msg) return;
+
+        var bubble = document.createElement('div');
+        bubble.className = 'chat-bubble chat-bubble-out';
+        bubble.textContent = msg;
+        chatPanelBody.appendChild(bubble);
+        chatPanelBody.scrollTop = chatPanelBody.scrollHeight;
+        chatInput.value = '';
+
+        setTimeout(function(){
+          var reply = document.createElement('div');
+          reply.className = 'chat-bubble chat-bubble-in';
+          reply.innerHTML = botReply(msg);
+          chatPanelBody.appendChild(reply);
+          chatPanelBody.scrollTop = chatPanelBody.scrollHeight;
+        }, 450);
+      });
+    }
+  }
+
 })();
 
 /* =========================================================================
@@ -147,27 +253,96 @@
     });
   });
 
-  /* Lightbox */
+  /* Lightbox — with Prev/Next navigation cycling through visible (filtered) cards */
   var lightbox = document.getElementById('lightbox');
   if(lightbox){
     var lbInner = document.getElementById('lightboxInner');
     var lbCap = document.getElementById('lightboxCap');
     var lbClose = document.getElementById('lightboxClose');
-    document.querySelectorAll('.g-card').forEach(function(card){
-      card.addEventListener('click', function(){
-        var inner = card.querySelector('.g-inner');
-        lbInner.className = 'lightbox-inner ' + (inner ? inner.className.replace('g-inner','') : '');
-        lbInner.style.background = getComputedStyle(inner).background;
-        lbInner.innerHTML = inner.innerHTML;
-        var cap = card.querySelector('h4');
-        lbCap.textContent = cap ? cap.textContent : '';
-        lightbox.classList.add('open');
+    var lbPrev = document.getElementById('lightboxPrev');
+    var lbNext = document.getElementById('lightboxNext');
+    var lbCounter = document.getElementById('lightboxCounter');
+    var currentIndex = 0;
+
+    function visibleCards(){
+      return Array.prototype.filter.call(document.querySelectorAll('.g-card'), function(c){
+        return c.offsetParent !== null; // skip display:none (filtered out) cards
       });
+    }
+
+    function renderCard(card){
+      var inner = card.querySelector('.g-inner');
+      lbInner.className = 'lightbox-inner ' + (inner ? inner.className.replace('g-inner','') : '');
+      lbInner.style.background = inner ? getComputedStyle(inner).background : '';
+      lbInner.innerHTML = inner ? inner.innerHTML : '';
+      var cap = card.querySelector('h4');
+      lbCap.textContent = cap ? cap.textContent : '';
+      if(lbCounter){
+        var cards = visibleCards();
+        var idx = cards.indexOf(card);
+        if(idx > -1){ lbCounter.textContent = (idx+1) + ' / ' + cards.length; }
+      }
+    }
+
+    function openAt(card){
+      var cards = visibleCards();
+      currentIndex = cards.indexOf(card);
+      renderCard(card);
+      lightbox.classList.add('open');
+    }
+
+    function step(dir){
+      var cards = visibleCards();
+      if(!cards.length) return;
+      currentIndex = (currentIndex + dir + cards.length) % cards.length;
+      renderCard(cards[currentIndex]);
+    }
+
+    document.querySelectorAll('.g-card').forEach(function(card){
+      card.addEventListener('click', function(){ openAt(card); });
     });
     function closeLb(){ lightbox.classList.remove('open'); }
     if(lbClose){ lbClose.addEventListener('click', closeLb); }
+    if(lbPrev){ lbPrev.addEventListener('click', function(e){ e.stopPropagation(); step(-1); }); }
+    if(lbNext){ lbNext.addEventListener('click', function(e){ e.stopPropagation(); step(1); }); }
     lightbox.addEventListener('click', function(e){ if(e.target === lightbox) closeLb(); });
-    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLb(); });
+    document.addEventListener('keydown', function(e){
+      if(!lightbox.classList.contains('open')) return;
+      if(e.key === 'Escape') closeLb();
+      if(e.key === 'ArrowLeft') step(-1);
+      if(e.key === 'ArrowRight') step(1);
+    });
+  }
+
+  /* Quick View modal (products.html) */
+  var qvModal = document.getElementById('quickviewModal');
+  if(qvModal){
+    var qvImg = document.getElementById('qvImg');
+    var qvName = document.getElementById('qvName');
+    var qvDesc = document.getElementById('qvDesc');
+    var qvPrice = document.getElementById('qvPrice');
+    var qvOrderBtn = document.getElementById('qvOrderBtn');
+    var qvClose = document.getElementById('qvClose');
+
+    document.querySelectorAll('.qv-btn').forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var card = btn.closest('[data-qv-name]');
+        if(!card) return;
+        qvImg.src = card.dataset.qvImg || '';
+        qvImg.alt = card.dataset.qvName || '';
+        qvName.textContent = card.dataset.qvName || '';
+        qvDesc.textContent = card.dataset.qvDesc || '';
+        qvPrice.textContent = card.dataset.qvPrice || '';
+        qvOrderBtn.href = card.dataset.qvLink || 'calculator.html';
+        qvModal.classList.add('open');
+      });
+    });
+    function closeQv(){ qvModal.classList.remove('open'); }
+    if(qvClose){ qvClose.addEventListener('click', closeQv); }
+    qvModal.addEventListener('click', function(e){ if(e.target === qvModal) closeQv(); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeQv(); });
   }
 
   /* Generic tabs (used on product/spec panels) */

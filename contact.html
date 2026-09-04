@@ -57,17 +57,20 @@
     "email": "patcheszone@gmail.com"
   },
   "sameAs": [
-    "https://www.facebook.com/patcheszone",
-    "https://www.instagram.com/patcheszone",
-    "https://www.pinterest.com/patcheszone",
-    "https://www.linkedin.com/company/patcheszone"
+    "https://www.facebook.com/profile.php?id=100011748732272&sk=about_details"
   ]
 }
 </script>
 
 </head>
 <body>
-<div id="loader"><div class="loader-mark">PZ</div><div class="loader-text">Patches Zone</div></div>
+<div id="loader">
+  <div class="loader-stitch-wrap">
+    <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="#FF7A1A" stroke-width="5" stroke-dasharray="10 8" stroke-linecap="round"/></svg>
+    <div class="loader-mark">PZ</div>
+  </div>
+  <div class="loader-text">Patches Zone</div>
+</div>
 <div class="cursor-dot"></div><div class="cursor-ring"></div>
 
 <header>
@@ -79,9 +82,8 @@
         <span><i class="fa-solid fa-truck"></i> Free worldwide shipping on 200+ pcs</span>
       </div>
       <div class="topbar-social">
-        <a href="https://www.facebook.com/patcheszone" aria-label="Facebook" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/patcheszone" aria-label="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.pinterest.com/patcheszone" aria-label="Pinterest" target="_blank" rel="noopener"><i class="fa-brands fa-pinterest-p"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100011748732272&sk=about_details" aria-label="Facebook" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://wa.me/923215900030" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
     </div>
   </div>
@@ -169,7 +171,7 @@
             <div class="field"><label>Email Address <span class="req">*</span></label><input type="email" required data-rule="email" placeholder="you@example.com"><span class="field-error">Please enter a valid email.</span></div>
           </div>
           <div class="form-row">
-            <div class="field"><label>Phone / WhatsApp</label><input type="tel" data-rule="phone" placeholder="+92 52 8159000"><span class="field-error">Please enter a valid phone number.</span></div>
+            <div class="field"><label>Phone / WhatsApp</label><input type="tel" data-rule="phone" placeholder="+92 321 5900030"><span class="field-error">Please enter a valid phone number.</span></div>
             <div class="field"><label>Subject <span class="req">*</span></label>
               <select required>
                 <option value="">Select a topic</option>
@@ -214,10 +216,8 @@
         </a>
         <p>Premium custom patch manufacturing — embroidered, PVC, chenille, leather and woven patches shipped worldwide. Free digitizing, no minimum order, and a live price calculator so you always know your cost upfront.</p>
         <div class="footer-social">
-          <a href="https://www.facebook.com/patcheszone" aria-label="Facebook" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/patcheszone" aria-label="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.pinterest.com/patcheszone" aria-label="Pinterest" target="_blank" rel="noopener"><i class="fa-brands fa-pinterest-p"></i></a>
-          <a href="https://www.linkedin.com/company/patcheszone" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=100011748732272&sk=about_details" aria-label="Facebook" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://wa.me/923215900030" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
       </div>
       <div>
@@ -244,7 +244,7 @@
           <li><i class="fa-solid fa-location-dot"></i> House No. 220, Khokhar Town, Sialkot, Punjab 51310, Pakistan</li>
           <li><i class="fa-solid fa-phone"></i> +92 52 8159000</li>
           <li><i class="fa-solid fa-envelope"></i> patcheszone@gmail.com</li>
-          <li><i class="fa-brands fa-whatsapp"></i> WhatsApp: +92 52 8159000</li>
+          <li><i class="fa-brands fa-whatsapp"></i> WhatsApp: +92 321 5900030</li>
         </ul>
       </div>
     </div>
@@ -272,6 +272,28 @@
     <i class="fa-solid fa-envelope"></i><span class="float-tooltip">Email Us</span>
   </a>
   <button class="float-btn float-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+</div><div class="chat-widget" id="chatWidget" data-whatsapp="923215900030" data-phone="+92 52 8159000" data-email="patcheszone@gmail.com">
+  <div class="chat-greet" id="chatGreet">
+    <button class="chat-greet-close" id="chatGreetClose" aria-label="Close">&times;</button>
+    <p><b>Patches Zone</b><br>👋 Hi there! How can I help you today?</p>
+  </div>
+  <button class="chat-fab" id="chatFab" aria-label="Chat with us">
+    <span class="pulse-ring chat-pulse"></span>
+    <i class="fa-solid fa-comment-dots" id="chatFabIcon"></i>
+  </button>
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-panel-head">
+      <div class="chat-agent"><span class="chat-online-dot"></span><div><b>Patches Zone Support</b><small>Usually replies in a few minutes</small></div></div>
+      <button class="chat-panel-close" id="chatPanelClose" aria-label="Close chat"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="chat-panel-body" id="chatPanelBody">
+      <div class="chat-bubble chat-bubble-in">Hi! 👋 Welcome to Patches Zone. Ask us anything about custom patches, pricing, turnaround time, or an existing order &mdash; send it below and we'll continue the chat on WhatsApp.</div>
+    </div>
+    <form class="chat-panel-input" id="chatPanelForm">
+      <input type="text" id="chatMsgInput" placeholder="Type your message..." maxlength="500" required>
+      <button type="submit" aria-label="Send"><i class="fa-solid fa-paper-plane"></i></button>
+    </form>
+  </div>
 <script>if (window.AOS) { AOS.init({duration:700, once:true, offset:60}); }</script>
 <script src="js/app.js"></script>
 <script src="js/animation.js"></script>
