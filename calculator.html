@@ -303,11 +303,21 @@
       <div class="grand"><span>Estimated total</span><span id="modalTotal">$0.00</span></div>
     </div>
     <form data-validate data-success="Thanks! Your quote request was received &mdash; we will email you a confirmed price within one business day.">
+      <input type="hidden" name="access_key" value="b8bbdaad-30ae-4785-b398-7e0a85863c70">
+      <input type="hidden" name="from_name" value="Patches Zone Quote Calculator">
+      <input type="hidden" name="patch_type" id="quotePatchType">
+      <input type="hidden" name="size" id="quoteSizeField">
+      <input type="hidden" name="quantity" id="quoteQtyField">
+      <input type="hidden" name="backing" id="quoteBackingField">
+      <input type="hidden" name="border" id="quoteBorderField">
+      <input type="hidden" name="colors" id="quoteColorsField">
+      <input type="hidden" name="instructions" id="quoteInstructionsField">
+      <input type="hidden" name="estimated_total" id="quoteTotalField">
       <div class="form-row">
-        <div class="field"><label>Full Name <span class="req">*</span></label><input type="text" required data-rule="min3" placeholder="Your name"><span class="field-error">Please enter your name.</span></div>
-        <div class="field"><label>Email Address <span class="req">*</span></label><input type="email" required data-rule="email" placeholder="you@example.com"><span class="field-error">Please enter a valid email.</span></div>
+        <div class="field"><label>Full Name <span class="req">*</span></label><input type="text" name="name" required data-rule="min3" placeholder="Your name"><span class="field-error">Please enter your name.</span></div>
+        <div class="field"><label>Email Address <span class="req">*</span></label><input type="email" name="email" required data-rule="email" placeholder="you@example.com"><span class="field-error">Please enter a valid email.</span></div>
       </div>
-      <div class="field"><label>Phone / WhatsApp</label><input type="tel" data-rule="phone" placeholder="+92 321 5900030"><span class="field-error">Please enter a valid phone number.</span></div>
+      <div class="field"><label>Phone / WhatsApp</label><input type="tel" name="phone" data-rule="phone" placeholder="+92 321 5900030"><span class="field-error">Please enter a valid phone number.</span></div>
       <button type="submit" class="btn btn-primary btn-block">Submit Quote Request</button>
       <div class="form-msg"></div>
     </form>

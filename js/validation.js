@@ -52,6 +52,21 @@
     msg.className = 'form-msg show ' + type;
   }
 
+  var WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
+
+  function setSubmitting(form, submitting){
+    var btn = form.querySelector('button[type="submit"]');
+    if(!btn) return;
+    if(submitting){
+      btn.dataset.originalText = btn.dataset.originalText || btn.textContent;
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+    } else {
+      btn.textContent = btn.dataset.originalText || btn.textContent;
+      btn.disabled = false;
+    }
+  }
+
   document.querySelectorAll('form[data-validate]').forEach(function(form){
     bindLiveValidation(form);
     form.addEventListener('submit', function(e){
@@ -67,13 +82,25 @@
         return;
       }
 
-      // No backend is wired up in this static build — simulate a successful
-      // submission so the UI/UX can be demoed end-to-end. Replace this block
-      // with a real fetch()/AJAX call to your server or form endpoint.
       var successText = form.dataset.success || 'Thank you! Your message has been received — our team will reply within one business day.';
-      showMsg(form, 'success', successText);
-      form.reset();
-      form.querySelectorAll('.field').forEach(clearError);
+      setSubmitting(form, true);
+      fetch(WEB3FORMS_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      }).then(function(r){ return r.json(); }).then(function(data){
+        setSubmitting(form, false);
+        if(data && data.success){
+          showMsg(form, 'success', successText);
+          form.reset();
+          form.querySelectorAll('.field').forEach(clearError);
+        } else {
+          showMsg(form, 'error', 'Something went wrong sending your message. Please try WhatsApp or email us directly.');
+        }
+      }).catch(function(){
+        setSubmitting(form, false);
+        showMsg(form, 'error', 'Something went wrong sending your message. Please try WhatsApp or email us directly.');
+      });
     });
   });
 
@@ -83,13 +110,26 @@
       e.preventDefault();
       var input = nf.querySelector('input[type="email"]');
       var note = nf.parentElement.querySelector('.nl-note');
-      if(input && EMAIL_RE.test(input.value.trim())){
-        if(note){ note.textContent = '✓ Subscribed! Watch your inbox for offers.'; note.style.color = '#fff'; }
-        input.value = '';
-      } else if(note){
-        note.textContent = 'Please enter a valid email address.';
-        note.style.color = '#FFD3D3';
+      if(!(input && EMAIL_RE.test(input.value.trim()))){
+        if(note){ note.textContent = 'Please enter a valid email address.'; note.style.color = '#FFD3D3'; }
+        return;
       }
+      fetch(WEB3FORMS_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(nf)))
+      }).then(function(r){ return r.json(); }).then(function(data){
+        if(note){
+          if(data && data.success){
+            note.textContent = '✓ Subscribed! Watch your inbox for offers.'; note.style.color = '#fff';
+            input.value = '';
+          } else {
+            note.textContent = 'Something went wrong. Please try again.'; note.style.color = '#FFD3D3';
+          }
+        }
+      }).catch(function(){
+        if(note){ note.textContent = 'Something went wrong. Please try again.'; note.style.color = '#FFD3D3'; }
+      });
     });
   });
 

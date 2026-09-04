@@ -166,14 +166,16 @@
         <h3 style="margin-bottom:6px;">Send Us A Message</h3>
         <p style="color:var(--muted);font-size:14px;margin-bottom:24px;">For an instant price, try the <a href="calculator.html" style="color:var(--royal);font-weight:700;">price calculator</a> instead.</p>
         <form data-validate data-success="Thank you! Your message has been received &mdash; our team will reply within one business day.">
+          <input type="hidden" name="access_key" value="b8bbdaad-30ae-4785-b398-7e0a85863c70">
+          <input type="hidden" name="from_name" value="Patches Zone Contact Form">
           <div class="form-row">
-            <div class="field"><label>Full Name <span class="req">*</span></label><input type="text" required data-rule="min3" placeholder="Your name"><span class="field-error">Please enter your name.</span></div>
-            <div class="field"><label>Email Address <span class="req">*</span></label><input type="email" required data-rule="email" placeholder="you@example.com"><span class="field-error">Please enter a valid email.</span></div>
+            <div class="field"><label>Full Name <span class="req">*</span></label><input type="text" name="name" required data-rule="min3" placeholder="Your name"><span class="field-error">Please enter your name.</span></div>
+            <div class="field"><label>Email Address <span class="req">*</span></label><input type="email" name="email" required data-rule="email" placeholder="you@example.com"><span class="field-error">Please enter a valid email.</span></div>
           </div>
           <div class="form-row">
-            <div class="field"><label>Phone / WhatsApp</label><input type="tel" data-rule="phone" placeholder="+92 321 5900030"><span class="field-error">Please enter a valid phone number.</span></div>
+            <div class="field"><label>Phone / WhatsApp</label><input type="tel" name="phone" data-rule="phone" placeholder="+92 321 5900030"><span class="field-error">Please enter a valid phone number.</span></div>
             <div class="field"><label>Subject <span class="req">*</span></label>
-              <select required>
+              <select name="subject" required>
                 <option value="">Select a topic</option>
                 <option>New Order Inquiry</option>
                 <option>Existing Order Support</option>
@@ -183,7 +185,7 @@
               </select>
             </div>
           </div>
-          <div class="field"><label>Message <span class="req">*</span></label><textarea required data-rule="min3" placeholder="Tell us about your project..."></textarea><span class="field-error">Please enter a message.</span></div>
+          <div class="field"><label>Message <span class="req">*</span></label><textarea name="message" required data-rule="min3" placeholder="Tell us about your project..."></textarea><span class="field-error">Please enter a message.</span></div>
           <div class="field">
             <label style="display:flex;align-items:center;gap:10px;font-weight:600;font-size:13.5px;"><input type="checkbox" required style="width:auto;" data-rule="checkbox"> I agree to the <a href="privacy.html" style="color:var(--royal);">Privacy Policy</a> <span class="req">*</span></label>
             <span class="field-error">Please accept the privacy policy to continue.</span>

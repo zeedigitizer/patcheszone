@@ -193,15 +193,39 @@
   var modal = document.getElementById('quoteModal');
   if(reqBtn && modal){
     reqBtn.addEventListener('click', function(){
-      document.getElementById('modalType').textContent = window._pzQuote.type || '—';
-      document.getElementById('modalSize').textContent = (window._pzQuote.size || '—') + '"';
-      document.getElementById('modalQty').textContent = (window._pzQuote.qty || '—') + ' pcs';
-      document.getElementById('modalBacking').textContent = window._pzQuote.backing || '—';
-      document.getElementById('modalBorder').textContent = activeText('#borderPills .pill.active');
-      document.getElementById('modalColors').textContent = selectedColors.length ? selectedColors.join(', ') : 'Standard';
-      document.getElementById('modalInstructions').textContent = (instructions && instructions.value.trim()) ? instructions.value.trim() : 'None provided';
-      document.getElementById('modalFile').textContent = (fileInput && fileInput.files && fileInput.files[0]) ? fileInput.files[0].name : 'None attached';
-      document.getElementById('modalTotal').textContent = '$' + (window._pzQuote.total || '0.00');
+      var q = window._pzQuote || {};
+      var borderText = activeText('#borderPills .pill.active');
+      var colorsText = (selectedColors && selectedColors.length) ? selectedColors.join(', ') : 'Standard';
+      var instructionsText = (instructions && instructions.value.trim()) ? instructions.value.trim() : 'None provided';
+      var fileText = (fileInput && fileInput.files && fileInput.files[0]) ? fileInput.files[0].name : 'None attached';
+
+      document.getElementById('modalType').textContent = q.type || '—';
+      document.getElementById('modalSize').textContent = (q.size || '—') + '"';
+      document.getElementById('modalQty').textContent = (q.qty || '—') + ' pcs';
+      document.getElementById('modalBacking').textContent = q.backing || '—';
+      document.getElementById('modalBorder').textContent = borderText;
+      document.getElementById('modalColors').textContent = colorsText;
+      document.getElementById('modalInstructions').textContent = instructionsText;
+      document.getElementById('modalFile').textContent = fileText;
+      document.getElementById('modalTotal').textContent = '$' + (q.total || '0.00');
+
+      var patchTypeField = document.getElementById('quotePatchType');
+      if(patchTypeField) patchTypeField.value = q.type || '';
+      var sizeField = document.getElementById('quoteSizeField');
+      if(sizeField) sizeField.value = q.size ? (q.size + '"') : '';
+      var qtyField = document.getElementById('quoteQtyField');
+      if(qtyField) qtyField.value = q.qty || '';
+      var backingField = document.getElementById('quoteBackingField');
+      if(backingField) backingField.value = q.backing || '';
+      var borderField = document.getElementById('quoteBorderField');
+      if(borderField) borderField.value = borderText;
+      var colorsField = document.getElementById('quoteColorsField');
+      if(colorsField) colorsField.value = colorsText;
+      var instructionsField = document.getElementById('quoteInstructionsField');
+      if(instructionsField) instructionsField.value = instructionsText;
+      var totalField = document.getElementById('quoteTotalField');
+      if(totalField) totalField.value = '$' + (q.total || '0.00');
+
       modal.classList.add('open');
     });
     var modalClose = document.getElementById('quoteModalClose');
